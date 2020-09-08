@@ -2,10 +2,13 @@ import sys
 
 import pygame
 
+from settings import Settings
+
 def run_game():
-    # Initialize pygame and create a screen object.
+    # Initialize pygame, settings and screen object.
     pygame.init()
-    screen = pygame.display.set_mode((1200, 800))
+    ai_settings = Settings()
+    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
     # Start the main loop for the game.
@@ -14,6 +17,9 @@ def run_game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+
+        # Every loop refill the screen
+        screen.fill(ai_settings.bg_color)
 
         # Visalize the latest screen
         pygame.display.flip()
