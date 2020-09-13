@@ -1,6 +1,6 @@
 import sys
 
-import pygame
+import pygame  # pygame is a cross-platform set of Python modules designed for writing video games.
 
 from settings import Settings
 
@@ -11,14 +11,15 @@ def run_game():
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    # Start the main loop for the game.
+    # Start the main loop of the game.
     while True:
+        
         # 监视键盘和鼠标事件
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
 
-        # Every loop refill the screen
+        # In every loop refill the screen
         screen.fill(ai_settings.bg_color)
 
         # Visalize the latest screen
