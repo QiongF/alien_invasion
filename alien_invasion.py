@@ -10,6 +10,9 @@ def run_game():
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
+    
+    # create a spaceship
+    ship = Ship(screen)
 
     # Start the main loop of the game.
     while True:
@@ -21,6 +24,7 @@ def run_game():
 
         # In every loop refill the screen
         screen.fill(ai_settings.bg_color)
+        ship.blitme()
 
         # Visalize the latest screen
         pygame.display.flip()
