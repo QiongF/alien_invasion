@@ -1,8 +1,8 @@
-import sys
-
 import pygame  # pygame is a cross-platform set of Python modules designed for writing video games.
 
 from settings import Settings
+from ship import Ship
+import game_functions as gf
 
 def run_game():
     # Initialize pygame, settings and screen object.
@@ -16,18 +16,8 @@ def run_game():
 
     # Start the main loop of the game.
     while True:
-        
-        # 监视键盘和鼠标事件
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        # In every loop refill the screen
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
-
-        # Visalize the latest screen
-        pygame.display.flip()
+        gf.check_events()      
+        gf.update_screen(ai_settings, screen, ship) 
 
 run_game()
 
